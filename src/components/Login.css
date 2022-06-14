@@ -1,0 +1,25 @@
+#img {
+  background-image: url('https://blog.houseofdiagnostics.com/wp-content/uploads/2019/07/PCOS-Symptoms.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  width: 50%;
+  height: 50%;
+}
+.imageLogin{
+    align-items: center;
+    width: 900px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.container{
+    align-items: center;
+    background-color: rgb(235, 210, 177);
+    margin-top: 400px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-bottom: 400px;
+}

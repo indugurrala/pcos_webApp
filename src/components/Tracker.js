@@ -1,41 +1,91 @@
-import React,{useState} from 'react'
-import DatePicker from "react-datepicker";
-import {useForm} from 'react-hook-form';
-import "react-datepicker/dist/react-datepicker.css";
-import { Container } from 'react-bootstrap';
+import React,{useState} from 'react';
+import Calendar from 'react-calendar'; 
+//import './App.css';
+import './Tracker.css'
+
 
 
 function Tracker() {
   const current=new Date();
   const [startDate, setStartDate] = useState(current);
   const [count,setCount]=useState(0);
-  const {register,handleSubmit,formState: {errors}}=useForm();
+  const [date, setDate] = useState(new Date())
 
-   function validate(event) {
-    if(startDate.getTime()<current.getTime()){
-      alert("select the future date")
-    }
-    else if(startDate.getTime()>=current.getTime()){
-      setCount(startDate.getDate()-current.getDate())
-    }
-  }
+
 
   return (
-    <>
-    <Container>
-      <form onSubmit={handleSubmit(validate)}>  
-       <hr></hr>
-        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect/>
-        <hr></hr>
-        <button className="btn btn-primary" type="submit">Get the remaining days</button>  
-        <hr></hr>
-      </form>
+    <div className='Tracker'>
+      <div class="row">
+        <div class="column">
+        <h6>always forgetting your last period date?
+          don't worry, we are here to remember it for you :D </h6>
+            <h6>Please, select your last period range in the below calender</h6>
+        </div>
+        <div class="column">
+        <Calendar onChange={setDate} value={date} selectRange={true}/>
+        </div>
+      </div>
+      {date.getDate != current.getDate ? (
+      <p id="select">
+        <span>your Last period is from: </span>{' '} {date[0].toDateString()}
+        &nbsp; to &nbsp;
+        <span></span> {date[1].toDateString()}
+      </p>
+           ) : (
+      <p>
+        <span>Your last period is from </span>{' '} {date.toDateString()}
+      </p>
+           )}
+      <img src="https://www.verywellhealth.com/thmb/lKGFeFNj9oEOpNxT31BBKQxwhAw=/1501x1001/filters:no_upscale():max_bytes(150000):strip_icc()/reasons-you-missed-your-period-2757503-5b95dfc846e0fb00503dfde9.png" class="img_check1"></img>
+      <img src="https://cdn.shopify.com/s/files/1/2130/4789/files/Fixed_Menstruation_Cycle.jpg" class="img_check2"></img>
+      <img src="https://www.verywellfamily.com/thmb/W8vVYMKyE8yFR-78jEGp6VIo1P0=/1500x1000/filters:fill(D7DFF5,1)/what-is-an-irregular-period-1959924_final-52123064a2144e9d967a80a49cb615c5.jpg" class="img_check3"></img>
+      
+         
+    </div>
+     );
+   }
+   
+   
 
-      <button className='btn btn-danger'>When was your last day?</button> <hr></hr>
-      <p>Your period is in {count} days</p>
-    </Container>
-    </>
-  )
-}
+// import React,{useState} from 'react'
+// import DatePicker from "react-datepicker";
+// import {useForm} from 'react-hook-form';
+// import "react-datepicker/dist/react-datepicker.css";
+// import { Container } from 'react-bootstrap';
+
+
+// function Tracker() {
+//   const current=new Date();
+//   const [startDate, setStartDate] = useState(current);
+//   const [count,setCount]=useState(0);
+//   const {register,handleSubmit,formState: {errors}}=useForm();
+
+//    function validate(event) {
+//      if(startDate.getDay()>current.getDay()){
+//       setCount(startDate.getDay()-current.getDay())
+//      }
+//     else if(startDate.getTime()<=current.getTime()){
+//      setCount(current.getTime()-startDate.getTime)
+//     }
+//   }
+
+//   return (
+//     <>
+//     <Container>
+//       <form onSubmit={handleSubmit(validate)}>  
+//        <hr></hr>
+//        <h6>when was your last period?Select the date using below date picker</h6>
+//         <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
+//         <hr></hr>
+//         <label htmlFor="length">Cycle length</label>
+//             <input type="Number" className="form-control" id="cycle_length" {...register("length")} />
+//         <button className="btn btn-primary" type="submit"> <h6>check you next period</h6></button>  
+//         <hr></hr>
+//       </form>
+//       <p>Your period is in {count} days</p>
+//     </Container>
+//     </>
+//   )
+// }
 
 export default Tracker

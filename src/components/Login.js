@@ -5,7 +5,6 @@ import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
 import {userLogin} from '../slices/userslice'
 
-
 function Login() {
     const {register,handleSubmit,formState: {errors}}=useForm();
     let {userObj,isSuccess,isError,isLoading,errMsg}=useSelector(state=>state.user);
@@ -32,6 +31,7 @@ function Login() {
   return (
     <>
     <Container>
+    
     <form onSubmit={handleSubmit(onFormSubmit)}>
         <div className="mb-3">
             <label htmlFor="name" >Name</label>
@@ -46,7 +46,9 @@ function Login() {
         {isError && <p>Invalid Credentials</p>}
         <button type="submit" className="btn btn-primary">Log In</button>
     </form>
+    <img src="https://cdn2.momjunction.com/wp-content/uploads/2021/12/PCOS-In-Teens-Causes-Symptoms-Diet-Treatment-And-Coping-Tips.jpg" class="imageLogin"></img>
     </Container>
+   
     </>
   )
 }
