@@ -3,8 +3,9 @@ import { Container } from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
-import {userLogin} from '../slices/userslice'
-
+import {userLogin} from '../slices/userslice';
+import './Login.css'
+import logo from '../images/logo.gif'
 function Login() {
     const {register,handleSubmit,formState: {errors}}=useForm();
     let {userObj,isSuccess,isError,isLoading,errMsg}=useSelector(state=>state.user);
@@ -30,7 +31,37 @@ function Login() {
 
   return (
     <>
-    <Container>
+    <section>
+        <div class="one">
+            <img src={logo}></img>
+        </div>
+        <div class="two">
+                          <div class="formBox">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit(onFormSubmit)}>              
+                    <div class="inputBox">
+                        <span>Username</span>
+                        <input type="name" className="form-control" id="name" {...register("name")} />
+            {errors.email && <span>This field is required</span>}
+                                </div>
+                    <div class="inputBox">
+                        <span>Password</span>
+                        <input type="password" className="form-control" id="password1" {...register("password")} />
+            {errors.password && <span>this field is required</span>}      </div>
+                    <div class="inputBox">
+                    {isError && <p>Invalid Credentials</p>}
+        <button type="submit" className="btn btn-primary">Log In</button>
+                    </div>
+                    <div class="inputBox">
+                        <p>Don't have an account? <a href="/">Sign Up</a></p>
+                    </div>
+                </form>
+                </div>
+            </div>
+            
+
+    </section>
+        {/* <Container>
     
     <form onSubmit={handleSubmit(onFormSubmit)}>
         <div className="mb-3">
@@ -48,7 +79,7 @@ function Login() {
     </form>
     <img src="https://cdn2.momjunction.com/wp-content/uploads/2021/12/PCOS-In-Teens-Causes-Symptoms-Diet-Treatment-And-Coping-Tips.jpg" class="imageLogin"></img>
     </Container>
-   
+    */}
     </>
   )
 }

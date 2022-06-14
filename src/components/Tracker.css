@@ -23,6 +23,9 @@ h6{
   height: 300px;
 
 }
+.row{
+  margin-top: 20px;
+}
 .react-calendar { 
     width: 700px;
     max-width: 100%;

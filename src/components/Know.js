@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React from 'react';
+import image_1 from '../images/image_1.jpeg';
+import image_2 from '../images/image_2.jpeg'
 function Know() {
   return (
     <div>
@@ -17,18 +18,15 @@ function Know() {
         </div>
         <br></br>
         <div className='row'>
-          <div className='col-sm-4'>
+          
           <button className='btn btn-success'>Upload ultrasound image</button>
-          </div>
-        </div>
-        <br />
-        <div className='row'>
-          <div className='col-sm-4'>
-          <button className='btn btn-primary'>Upload clinical values...</button>
-          </div>
+          
+                    <button className='btn btn-primary'>Upload clinical values...</button>
+          
         </div>
       </div>
-    </div>
+         </div>
+    
   )
 }
 

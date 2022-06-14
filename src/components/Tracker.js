@@ -30,17 +30,27 @@ function Tracker() {
         <span>your Last period is from: </span>{' '} {date[0].toDateString()}
         &nbsp; to &nbsp;
         <span></span> {date[1].toDateString()}
+        {30-current.getDate()+date[0].getDate()>0?<>
+       <br></br> <span>Your next period is in </span>{30-current.getDate()+date[0].getDate()}
+        </>:(
+          <>
+         <br></br>
+         <span>you're period is late this month, take care to regularise your periods</span>
+         </>
+        )
+}
       </p>
            ) : (
       <p>
-        <span>Your last period is from </span>{' '} {date.toDateString()}
+        <span>Please select your last period date </span>{' '} 
       </p>
            )}
+           <div class="row">
       <img src="https://www.verywellhealth.com/thmb/lKGFeFNj9oEOpNxT31BBKQxwhAw=/1501x1001/filters:no_upscale():max_bytes(150000):strip_icc()/reasons-you-missed-your-period-2757503-5b95dfc846e0fb00503dfde9.png" class="img_check1"></img>
       <img src="https://cdn.shopify.com/s/files/1/2130/4789/files/Fixed_Menstruation_Cycle.jpg" class="img_check2"></img>
       <img src="https://www.verywellfamily.com/thmb/W8vVYMKyE8yFR-78jEGp6VIo1P0=/1500x1000/filters:fill(D7DFF5,1)/what-is-an-irregular-period-1959924_final-52123064a2144e9d967a80a49cb615c5.jpg" class="img_check3"></img>
       
-         
+        </div> 
     </div>
      );
    }

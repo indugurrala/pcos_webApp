@@ -12,6 +12,7 @@ import Tracker from './components/Tracker'
 import Userdashboard from './components/Userdashboard'
 import Info from './components/Info';
 import Edit from './components/Edit';
+import Suggestions from './components/Suggestions';
 
 function App() {
 
@@ -59,6 +60,9 @@ function App() {
                 <NavLink className="nav-link" to="/know">kNOw</NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/suggestions">Suggestions</NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/tracker">Tracker</NavLink>
               </li>
               <li className="nav-item">
@@ -76,7 +80,8 @@ function App() {
       
       <Route path="/" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/userdashboard" element={<Userdashboard />} />  
+      <Route path="/userdashboard" element={<Userdashboard />} /> 
+      <Route path="/suggestions" element={<Suggestions/>} /> 
           
          
       
