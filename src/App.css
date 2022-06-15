@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+#logout{
+  background-color:transparent;
+  color: aliceblue;
+  border-color: transparent;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #f1747f;
+  background-color: hsl(355, 82%, 70%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

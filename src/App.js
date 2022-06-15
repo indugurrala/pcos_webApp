@@ -68,7 +68,7 @@ function App() {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/profile">Profile</NavLink>
               </li>
-              <button className='btn btn-danger' onClick={userLogout}>Logout</button>
+              <button id="logout" onClick={userLogout}>Logout</button>
           </ul>
           </>
           )}

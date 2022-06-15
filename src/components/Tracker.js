@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import Calendar from 'react-calendar'; 
 //import './App.css';
-import './Tracker.css'
-
+import './Tracker.css';
+import {useEffect} from 'react';
+import axios from 'axios'
 
 
 function Tracker() {
@@ -12,6 +13,11 @@ function Tracker() {
   const [date, setDate] = useState(new Date())
 
 
+  useEffect(()=>{
+    axios.get('http:://localhost:4000/dateapi/getdate')
+    .then(response=>console.log(response))
+    .catch(err=>console.log("errorr",err))
+})
 
   return (
     <div className='Tracker'>

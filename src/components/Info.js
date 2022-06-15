@@ -1,6 +1,8 @@
 import React, { useEffect,useState } from 'react'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import './Info.css'
+import { Container } from '@mui/system';
 
 function Info() {
   let {userObj,isSuccess,isError,isLoading,errMsg}=useSelector(state=>state.user);
@@ -25,8 +27,8 @@ function Info() {
   console.log(users)
 
   return (
-    <div>
-      <table className='table table-striped table-hover'>
+<>
+<table className='table table-striped table-hover'>
         <tbody>
         <tr>
           <td>Name</td>
@@ -56,12 +58,14 @@ function Info() {
           <td>Average working hours</td>
           <td>{users.working} </td>
         </tr>
+        <tr>
+          <td>Last Period Date</td>
+          <td>{users.period} </td>
+        </tr>
         </tbody>
       </table>
-      {/* <div style={{width:"150px",height:"150px",display:'flex',flexDirection:'column',marginTop:'500px'}}>
-        <hr style={{width:'100%',height:'5px'}}/>
-      </div> */}
-    </div>
+
+</>   
   )
 }
 

@@ -15,6 +15,8 @@ mc.connect(dburl,{ useNewUrlParser: true, useUnifiedTopology: true })
     app.set("examplecollectionobj",examplecollectionobj);
     let detailcollectionObj=client.db("sample").collection("profilecollection");
     app.set("detailCollectionObj",detailcollectionObj);
+    let datecollectionObj=client.db("sample").collection("datecollection");
+    app.set("dateCollectionObj",datecollectionObj);
 
     console.log("DB connection succesful ");
 })
@@ -25,7 +27,8 @@ const userapp=require("./src/api/userapi")
 const detailapp=require('./src/api/detailapi')
 app.use('/detailapi',detailapp);
 app.use("/userapp",userapp);
-
+const dateapp=require('./src/api/dateapi');
+app.use('/dateapi',dateapp);
 app.use('*',(req,res)=>{
     res.sendFile(path.join(__dirname,'./build/index.html'));
 })

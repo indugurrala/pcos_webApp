@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-
+import './Edit.css'
 function Edit() {
     const navigate=useNavigate();
     const {register,handleSubmit,formState: {errors}}=useForm();
@@ -70,6 +70,10 @@ function Edit() {
         <div className="mb-3">
             {/* <label htmlFor="password1">Password</label> */}
             <input type="number" className="form-control" id="password1" placeholder='Enter your average working hours' {...register("working")} />
+        </div>
+        <div className="mb-3">
+            {/* <label htmlFor="period">Period</label> */}
+            <input type="date" className="form-control" id="period" placeholder='Enter your last period date' {...register("period")} />
         </div>
         
         <button type="submit" className="btn btn-primary">Submit</button>
